@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VocalCart</title>
+</head>
+<body>
+    <h1>🛒 Welcome to VocalCart</h1>
+    <button onclick="startVoice()">Start Voice Search</button>
+    <p id="status"></p>
+
+    <script>
+        function startVoice() {
+            document.getElementById("status").innerText = "🎤 Listening...";
+            fetch("/start-voice", { method: "POST" })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("status").innerText = "❌ Error: " + data.error;
+                    } else {
+                        document.getElementById("status").innerText = "✅ You said: " + data.query + "\n💬 Response: " + data.message;
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById("status").innerText = "❌ Failed to contact server.";
+                });
+        }
+    </script>
+</body>
+</html>

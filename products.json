@@ -1,0 +1,17 @@
+[
+    {
+      "title": "White Canvas Sneakers",
+      "price": 449,
+      "material": "Cotton",
+      "color": "White",
+      "waterproof": false
+    },
+    {
+      "title": "White Leather Loafers",
+      "price": 499,
+      "material": "Leather",
+      "color": "White",
+      "waterproof": true
+    }
+  ]
+  
