@@ -2,3 +2,12 @@ flask
 SpeechRecognition
 gtts
 pyaudio
+json
+logging
+voice_input
+voice_output
+query_parser
+command_parser
+flipkart_scraper
+shopping_cart
+product_description
