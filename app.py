@@ -6,7 +6,21 @@ from query_parser import parse_query
 from command_parser import parse_command
 from flipkart_scraper import search_flipkart
 from shopping_cart import ShoppingCart
-from product_description import describe_product, compare_products, generate_product_summary
+
+# Try to import product description functions, provide fallbacks if missing
+try:
+    from product_description import describe_product, compare_products, generate_product_summary
+except ImportError:
+    def describe_product(product):
+        title = product.get('title', 'Unknown Product')
+        price = product.get('price', 'Price not available')
+        return f"This is {title}. It's priced at rupees {price}."
+    
+    def compare_products(products):
+        return "Product comparison feature is not available."
+    
+    def generate_product_summary(products):
+        return f"I found {len(products)} products for you."
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
