@@ -1,12 +1,20 @@
 import json
 import os
+import logging
 from datetime import datetime
 from product_description import format_price_for_voice, clean_title_for_voice
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 class ShoppingCart:
     def __init__(self, cart_file='cart.json'):
         self.cart_file = cart_file
         self.cart = self.load_cart()
+        
+    def get_items(self):
+        """Get all items in the cart"""
+        return self.cart.get('items', [])
     
     def load_cart(self):
         """Load cart from file or create empty cart"""
@@ -14,17 +22,23 @@ class ShoppingCart:
             try:
                 with open(self.cart_file, 'r') as f:
                     return json.load(f)
-            except:
+            except Exception as e:
+                logger.error(f"Error loading cart file {self.cart_file}: {e}")
                 return {'items': [], 'total': 0, 'created': datetime.now().isoformat()}
         return {'items': [], 'total': 0, 'created': datetime.now().isoformat()}
     
     def save_cart(self):
         """Save cart to file"""
         try:
+            # Create directory if it doesn't exist
+            cart_dir = os.path.dirname(self.cart_file)
+            if cart_dir and not os.path.exists(cart_dir):
+                os.makedirs(cart_dir)
+                
             with open(self.cart_file, 'w') as f:
                 json.dump(self.cart, f, indent=2)
         except Exception as e:
-            print(f"Error saving cart: {e}")
+            logger.error(f"Error saving cart to {self.cart_file}: {e}")
     
     def add_item(self, product):
         """Add a product to the cart"""

@@ -28,9 +28,13 @@ logger = logging.getLogger(__name__)
 
 class VoiceShoppingApp:
     def __init__(self):
-        self.cart = ShoppingCart()
+        # Create a unique cart file for this session
+        import uuid
+        session_id = str(uuid.uuid4())[:8]
+        self.cart = ShoppingCart(cart_file=f"carts/cart_{session_id}.json")
         self.current_products = []
         self.session_active = True
+        self.session_id = session_id
         
     def start(self):
         speak("Welcome to VocalCart! Your voice-powered shopping assistant.")
@@ -64,6 +68,8 @@ class VoiceShoppingApp:
             self.handle_view_cart()
         elif command_type == "remove_from_cart":
             self.handle_remove_from_cart(command_data)
+        elif command_type == "clear_cart":
+            self.handle_clear_cart()
         elif command_type == "product_details":
             self.handle_product_details(command_data)
         elif command_type == "compare":
@@ -140,7 +146,36 @@ class VoiceShoppingApp:
         speak(f"Your total is rupees {total}. Would you like to checkout or continue shopping?")
     
     def handle_remove_from_cart(self, item_data):
-        speak("To remove items, say 'remove item 1' or similar. This feature is coming soon!")
+        try:
+            item_number = item_data.get('item_number', 1) - 1
+            
+            items = self.cart.get_items()
+            if not items:
+                speak("Your cart is empty.")
+                return
+                
+            if 0 <= item_number < len(items):
+                item = items[item_number]
+                success, message = self.cart.remove_item(index=item_number+1)  # +1 because remove_item uses 1-based indexing
+                
+                if success:
+                    speak(message)
+                else:
+                    speak(f"I couldn't remove that item. {message}")
+            else:
+                speak(f"Please specify a valid item number between 1 and {len(items)}.")
+                
+        except Exception as e:
+            logger.error(f"Remove from cart error: {e}")
+            speak("Sorry, I had trouble removing that item from your cart.")
+            
+    def handle_clear_cart(self):
+        try:
+            message = self.cart.clear_cart()
+            speak(message)
+        except Exception as e:
+            logger.error(f"Clear cart error: {e}")
+            speak("Sorry, I encountered an error clearing your cart.")
     
     def handle_product_details(self, item_data):
         try:
@@ -170,22 +205,30 @@ class VoiceShoppingApp:
             speak("Sorry, I couldn't compare the products.")
     
     def handle_checkout(self):
-        items = self.cart.get_items()
-        if not items:
-            speak("Your cart is empty. Add some items first!")
-            return
-            
-        total = sum(item['price'] * item['quantity'] for item in items)
-        speak(f"Your order total is rupees {total}. Proceeding to checkout...")
-        speak("This is a demo. In a real app, you would be redirected to payment.")
-        speak("Thank you for shopping with VocalCart!")
+        try:
+            items = self.cart.get_items()
+            if not items:
+                speak("Your cart is empty. Add some items first!")
+                return
+                
+            success, checkout_message = self.cart.proceed_to_checkout()
+            if success:
+                speak(checkout_message)
+            else:
+                speak("There was an issue with checkout. " + checkout_message)
+                
+        except Exception as e:
+            logger.error(f"Checkout error: {e}")
+            speak("Sorry, I encountered an error during checkout. Please try again.")
     
     def show_help(self):
         help_text = """
         Here are some commands you can try:
         Search for products by saying: search for shoes under 2000 rupees.
         Add items by saying: add item 1 to cart.
+        Remove items by saying: remove item 1 from cart.
         View your cart by saying: show my cart.
+        Clear your cart by saying: clear cart.
         Get product details by saying: tell me about item 2.
         Compare products by saying: compare products.
         Checkout by saying: checkout.

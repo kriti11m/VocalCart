@@ -1,17 +1,59 @@
 [
-    {
-      "title": "White Canvas Sneakers",
-      "price": 449,
-      "material": "Cotton",
-      "color": "White",
-      "waterproof": false
-    },
-    {
-      "title": "White Leather Loafers",
-      "price": 499,
-      "material": "Leather",
-      "color": "White",
-      "waterproof": true
-    }
-  ]
+  {
+    "title": "White Canvas Sneakers - Comfortable Walking Shoes",
+    "price": 1299,
+    "material": "Cotton Canvas",
+    "color": "White",
+    "rating": "4.2"
+  },
+  {
+    "title": "Black Running Shoes - Sports & Athletic",
+    "price": 1899,
+    "material": "Synthetic",
+    "color": "Black",
+    "rating": "4.5"
+  },
+  {
+    "title": "Brown Formal Leather Loafers",
+    "price": 2499,
+    "material": "Genuine Leather",
+    "color": "Brown",
+    "rating": "4.1"
+  },
+  {
+    "title": "Blue Sports Training Shoes",
+    "price": 1599,
+    "material": "Mesh & Synthetic",
+    "color": "Blue",
+    "rating": "4.3"
+  },
+  {
+    "title": "Red Casual Canvas Shoes",
+    "price": 1199,
+    "material": "Canvas",
+    "color": "Red",
+    "rating": "4.0"
+  },
+  {
+    "title": "Grey Hiking Boots - Outdoor Adventure",
+    "price": 3299,
+    "material": "Leather & Fabric",
+    "color": "Grey",
+    "rating": "4.6"
+  },
+  {
+    "title": "Pink Women's Running Shoes",
+    "price": 1799,
+    "material": "Mesh",
+    "color": "Pink",
+    "rating": "4.4"
+  },
+  {
+    "title": "Green Eco-Friendly Sneakers",
+    "price": 2199,
+    "material": "Recycled Materials",
+    "color": "Green",
+    "rating": "4.2"
+  }
+]
   
