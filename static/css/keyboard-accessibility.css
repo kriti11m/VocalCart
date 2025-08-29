@@ -1,0 +1,269 @@
+/**
+ * VocalCart Keyboard Accessibility Styles
+ * This file focuses on enhancing keyboard navigation and focus visibility
+ */
+
+:root {
+  --focus-outline-width: 3px;
+  --focus-outline-color: #2196F3;
+  --skip-link-bg: #1976d2;
+  --skip-link-color: white;
+}
+
+/* ===== FOCUS STYLES ===== */
+/* Improved focus styles for all interactive elements */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: var(--focus-outline-width) solid var(--focus-outline-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.5);
+  transition: outline-offset 0.1s ease;
+  z-index: 9999;
+  position: relative;
+}
+
+/* Focus-visible polyfill for modern browsers */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--focus-outline-width) solid var(--focus-outline-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.5);
+}
+
+/* ===== SKIP LINKS ===== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--skip-link-bg);
+  color: var(--skip-link-color);
+  padding: 8px;
+  z-index: 100000;
+  transition: top 0.3s;
+  border-radius: 0 0 4px 0;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline-offset: 0;
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+[role="button"],
+[role="link"],
+[role="tab"] {
+  cursor: pointer;
+}
+
+/* Make non-interactive elements with tabindex more visually interactive */
+[tabindex]:not(button):not(a):not(input):not(select):not(textarea) {
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+/* ===== KEYBOARD MODALS ===== */
+/* Style for modals that are designed to trap focus for keyboard users */
+.keyboard-modal {
+  position: fixed;
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  outline: none;
+}
+
+.keyboard-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.keyboard-modal:focus {
+  outline: var(--focus-outline-width) solid var(--focus-outline-color);
+}
+
+.keyboard-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.keyboard-modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.keyboard-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.keyboard-modal-body {
+  margin-bottom: 15px;
+}
+
+.keyboard-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: more) {
+  :root {
+    --focus-outline-color: #ff0;
+    --focus-outline-width: 4px;
+  }
+  
+  body {
+    background: #000 !important;
+    color: #fff !important;
+  }
+  
+  a {
+    color: #3ff !important;
+  }
+  
+  button, 
+  input[type="button"],
+  input[type="submit"] {
+    background: #333 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+  }
+}
+
+/* Manual high contrast class that can be toggled */
+body.high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+  
+  a {
+    color: #3ff !important;
+    text-decoration: underline !important;
+  }
+  
+  button, 
+  input[type="button"],
+  input[type="submit"] {
+    background: #333 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+  }
+  
+  input, select, textarea {
+    background: #000 !important;
+    color: #fff !important;
+    border: 2px solid #ccc !important;
+  }
+  
+  img {
+    filter: grayscale(100%) contrast(120%) !important;
+  }
+  
+  :root {
+    --focus-outline-color: #ff0;
+    --focus-outline-width: 4px;
+  }
+}
+
+/* ===== KEYBOARD SHORTCUT HINTS ===== */
+.keyboard-shortcut-hint {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  pointer-events: none;
+  z-index: 10000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.keyboard-shortcut-hint.visible {
+  opacity: 1;
+}
+
+/* ===== FOCUS TRAP UTILITY ===== */
+.focus-trap {
+  outline: none;
+}
+
+/* ===== SCREEN READER UTILITIES ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Visible only for screen readers, but hidden visually */
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}

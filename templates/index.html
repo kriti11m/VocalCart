@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VocalCart - Voice Shopping</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/reset-layout.css">
+    <link rel="stylesheet" href="/static/css/accessibility.css">
+    <link rel="stylesheet" href="/static/css/keyboard-accessibility.css">
+    <link rel="stylesheet" href="/static/css/screen-reader-enhancements.css">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Meta tags for accessibility -->
+    <meta name="description" content="VocalCart - An accessible voice-powered shopping assistant for users with visual impairments">
+    <meta name="keywords" content="accessible shopping, voice assistant, blind users, screen reader friendly, VocalCart">
+    <meta name="application-name" content="VocalCart">
+    <meta name="apple-mobile-web-app-title" content="VocalCart">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 </head>
 <body>
     <div class="background-animation"></div>
@@ -13,7 +23,11 @@
         <div class="header">
             <h1>🎤 VocalCart</h1>
             <p class="subtitle">Your AI-Powered Voice Shopping Assistant</p>
+            <p class="accessibility-info" style="color: white; font-size: 0.9em; margin-top: 10px;">
+                Press Alt+T for audio tutorial or Control+Space to start voice commands. Audio guide is also available in the quick actions below.
+            </p>
         </div>
+        <div id="main-content" tabindex="-1">
         
         <div class="voice-control">
             <div class="input-methods">
@@ -55,6 +69,9 @@
                 <button onclick="app.checkout()" class="quick-btn checkout">
                     💳 Checkout
                 </button>
+                <button onclick="if(window.audioTutorial) window.audioTutorial.startTutorial()" class="quick-btn tutorial">
+                    🔊 Audio Guide
+                </button>
             </div>
         </div>
 
@@ -95,10 +112,16 @@
                 💡 Tip: Click on any command above to automatically fill the text input!
             </p>
         </div>
+        </div> <!-- End of main-content -->
     </div>
 
-    <!-- Load the main JavaScript file -->
+    <!-- Load the main JavaScript files -->
+    <script src="/static/js/accessibility-config.js"></script>
     <script src="/static/js/app.js"></script>
+    <script src="/static/js/accessibility-tutorial.js"></script>
+    <script src="/static/js/audio-tutorial.js"></script>
+    <script src="/static/js/auto-start-tutorial.js"></script>
+    <script src="/static/js/keyboard-shortcuts-modal.js"></script>
     
     <!-- Global function for handling Enter key in text input -->
     <script>
@@ -108,6 +131,12 @@
             }
         }
     </script>
+    
+    <!-- Additional accessibility features for screen readers -->
+    <div id="sr-announcements" aria-live="assertive" class="sr-only"></div>
+    
+    <!-- Skip to content link for keyboard accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
 </body>
 </html>
 

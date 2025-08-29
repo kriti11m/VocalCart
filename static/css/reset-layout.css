@@ -1,0 +1,361 @@
+/* 
+* VocalCart Complete Layout Reset
+* This CSS completely overhauls the layout to ensure it's centered
+* and all text is visible
+*/
+
+/* Reset basic elements */
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Fix the background */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: -1;
+}
+
+/* Main container */
+.container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header section */
+.header {
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    -webkit-text-fill-color: white !important;
+}
+
+.header .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: white !important;
+}
+
+.accessibility-info {
+    font-size: 0.9rem;
+    color: white !important;
+}
+
+/* Main content wrapper */
+#main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Voice control panel */
+.voice-control {
+    width: 90%;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Input methods styling */
+.input-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.voice-section, .text-section {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+}
+
+.section-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Voice button styling */
+.voice-button {
+    width: 100%;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+}
+
+/* Text input styling */
+.text-input-container {
+    margin-bottom: 15px;
+}
+
+.text-input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid rgba(102,126,234,0.3);
+    border-radius: 50px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+}
+
+/* Divider styling */
+.or-divider {
+    display: flex;
+    align-items: center;
+    color: #888;
+    margin: 0 10px;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.or-divider span {
+    padding: 0 10px;
+}
+
+/* Status indicator */
+.status {
+    margin: 15px 0;
+    color: #555;
+    min-height: 20px;
+}
+
+/* Quick action buttons */
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.quick-btn {
+    flex: 1;
+    min-width: 120px;
+    max-width: 160px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.quick-btn.search {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.quick-btn.cart {
+    background: linear-gradient(135deg, #ed8936, #dd6b20);
+}
+
+.quick-btn.checkout {
+    background: linear-gradient(135deg, #9f7aea, #805ad5);
+}
+
+.quick-btn.tutorial {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+}
+
+/* Main content area */
+.main-content {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Products section */
+.products-section {
+    flex: 1 1 600px;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Products grid */
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Empty state */
+.empty-state {
+    padding: 30px;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+/* Shopping cart */
+.cart-panel {
+    flex: 1 1 300px;
+    max-width: 350px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 30px;
+}
+
+.cart-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.cart-total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid rgba(102,126,234,0.2);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #667eea;
+    text-align: right;
+}
+
+/* Commands help section */
+.commands-help {
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 30px;
+}
+
+.commands-help h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.commands-help ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.commands-help li {
+    flex: 1 1 250px;
+    max-width: 350px;
+    padding: 15px;
+    background-color: rgba(102,126,234,0.1);
+    border-radius: 10px;
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .input-methods {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .voice-section, .text-section {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .or-divider {
+        margin: 15px 0;
+        width: 100%;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+        max-width: 250px;
+        margin: 20px auto 0;
+    }
+    
+    .quick-btn {
+        max-width: 100%;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .products-section,
+    .cart-panel {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+}

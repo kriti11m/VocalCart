@@ -1,0 +1,91 @@
+/**
+ * VocalCart Final Layout Overrides
+ * This CSS applies the strongest overrides to fix all layout issues
+ * and ensure text visibility across all sections
+ */
+
+/* Force proper centering for all elements */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Fix container to be properly centered */
+.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix the header text visibility */
+.header {
+    width: 100% !important;
+    max-width: 1200px !important;
+    text-align: center !important;
+}
+
+.header h1 {
+    color: white !important;
+    font-size: 3rem !important;
+    -webkit-text-fill-color: white !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+}
+
+.header .subtitle {
+    color: white !important;
+    font-size: 1.3rem !important;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4) !important;
+}
+
+.accessibility-info {
+    color: white !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3) !important;
+}
+
+/* Center voice control panel */
+.voice-control {
+    width: 90% !important;
+    max-width: 800px !important;
+    margin: 20px auto !important;
+}
+
+/* Center main content layout */
+.main-content {
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 20px auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    justify-content: center !important;
+}
+
+/* Proper product section styling */
+.products-section {
+    flex: 1 1 600px !important;
+    max-width: 800px !important;
+}
+
+/* Proper cart panel styling */
+.cart-panel {
+    flex: 1 1 280px !important;
+    max-width: 350px !important;
+}
+
+/* Center commands help section */
+.commands-help {
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 20px auto !important;
+    text-align: center !important;
+}

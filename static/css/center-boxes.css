@@ -1,0 +1,120 @@
+/**
+ * VocalCart Center Boxes Enhancement
+ * This stylesheet ensures all main content boxes are centered properly
+ */
+
+/* Center the main container with improved spacing */
+.container {
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 30px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* Center the header content */
+.header {
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 40px !important;
+}
+
+/* Ensure the voice control box is centered */
+.voice-control {
+    width: 95% !important;
+    max-width: 900px !important;
+    margin: 0 auto 40px auto !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.12) !important;
+}
+
+/* Center the main content grid */
+.main-content {
+    width: 95% !important;
+    max-width: 1200px !important;
+    margin: 0 auto 40px auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 350px !important;
+    gap: 30px !important;
+    justify-content: center !important;
+}
+
+/* Style the products section */
+.products-section {
+    width: 100% !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.12) !important;
+}
+
+/* Style the cart panel */
+.cart-panel {
+    width: 100% !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.12) !important;
+}
+
+/* Center the products grid */
+.products-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px !important;
+}
+
+/* Center the commands help section */
+.commands-help {
+    width: 95% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.12) !important;
+}
+
+/* Center quick action buttons */
+.quick-actions {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    flex-wrap: wrap !important;
+    margin: 25px auto 0 auto !important;
+}
+
+/* Style quick action buttons */
+.quick-btn {
+    min-width: 130px !important;
+    flex: 0 0 auto !important;
+}
+
+/* Better responsive design for main content */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .cart-panel {
+        max-width: 800px !important;
+        margin: 0 auto 30px auto !important;
+    }
+    
+    .products-section {
+        margin: 0 auto !important;
+    }
+}
+
+/* Additional centering for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 95% !important;
+        padding: 20px 10px !important;
+    }
+    
+    .voice-control,
+    .products-section,
+    .cart-panel,
+    .commands-help {
+        width: 100% !important;
+        padding: 25px 15px !important;
+    }
+}

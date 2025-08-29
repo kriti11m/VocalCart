@@ -1,0 +1,301 @@
+/**
+ * Screen Reader Specific Enhancements
+ * These styles are specifically designed to improve the experience for blind users
+ * and are complementary to the other accessibility styles.
+ */
+
+/* Improved skip links with better contrast and positioning */
+.skip-to-content {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.skip-to-content:focus {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    padding: 15px 20px;
+    background-color: #f1f1f1;
+    border: 3px solid #0078d4;
+    color: #0078d4;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Improved focus indicators for all interactive elements */
+:focus {
+    outline: 3px solid #2196F3;
+    outline-offset: 3px;
+}
+
+/* Make sure buttons always have a visible focus state */
+button:focus {
+    outline: 3px solid #2196F3;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4);
+}
+
+/* Improved ARIA live regions */
+[aria-live="polite"],
+[aria-live="assertive"],
+[role="status"],
+[role="alert"] {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Ensure focus styles don't disappear in high contrast mode */
+@media (forced-colors: active) {
+    button:focus,
+    input:focus,
+    a:focus,
+    [tabindex]:focus {
+        outline: 3px solid CanvasText !important;
+        outline-offset: 3px;
+    }
+}
+
+/* Enhanced contrast for important text */
+.status, 
+.cart-header,
+.section-title,
+.subtitle,
+button,
+.keyboard-modal-title {
+    text-shadow: 0 0 1px rgba(0,0,0,0.5);
+}
+
+/* Ensure text meets WCAG contrast requirements */
+body {
+    color: #212121;
+}
+
+/* Screen reader pause button styles */
+.sr-pause-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10000;
+    padding: 10px 15px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sr-pause-button:focus {
+    outline: 3px solid #ff4081;
+    outline-offset: 2px;
+}
+
+/* Tutorial notification banner for screen reader users */
+.sr-tutorial-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #0078d4;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    z-index: 9999;
+    font-weight: bold;
+}
+
+/* Screen reader tutorial modal enhancements */
+.sr-tutorial-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+}
+
+.sr-tutorial-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+}
+
+.sr-tutorial-modal h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+.sr-tutorial-modal p {
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+.sr-tutorial-modal button {
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Special focus styles for screen readers */
+.sr-focus:focus {
+    outline: 4px solid #ff4081;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px rgba(255, 64, 129, 0.4);
+}
+
+/* Special indicator for current focus for blind users using screen readers */
+.sr-focus-indicator {
+    position: absolute;
+    padding: 5px;
+    background-color: #0078d4;
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Announcement area styles */
+#sr-announcements {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Screen reader specific labels that are visually hidden but announced */
+.sr-only-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Improved element spacing for better screen reader navigation */
+[role="navigation"],
+[role="main"],
+[role="search"],
+[role="complementary"],
+[role="banner"],
+[role="contentinfo"] {
+    margin-bottom: 20px;
+}
+
+/* Enhanced heading hierarchy for better screen reader navigation */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+/* Make sure form elements have proper accessibility */
+input, 
+textarea, 
+select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+    border-color: #0078d4;
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.25);
+}
+
+/* Ensure labels are associated with form controls */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Screen reader progress indicator */
+.sr-progress {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    z-index: 9999;
+    max-width: 300px;
+    font-size: 14px;
+}
+
+/* Tutorial controls specifically designed for screen reader users */
+.sr-tutorial-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sr-tutorial-controls button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Enhanced description for complex UI elements */
+.enhanced-description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Special hidden text for screen readers */
+.sr-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

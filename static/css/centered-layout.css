@@ -1,0 +1,230 @@
+/**
+ * VocalCart Centered Layout Enhancement
+ * This stylesheet improves the overall layout with better centering and spacing
+ * and adds modern visual enhancements
+ */
+
+/* Enhance the background animation */
+.background-animation {
+    animation-duration: 20s !important;
+    background-size: 300% 300% !important;
+}
+
+/* Center the main container and improve its width */
+.container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 30px 20px !important;
+}
+
+/* Improve header alignment and spacing */
+.header {
+    padding: 30px 0 40px !important;
+}
+
+/* Center the voice control section */
+.voice-control {
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 50px !important;
+    padding: 40px !important;
+}
+
+/* Improve input methods layout */
+.input-methods {
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+}
+
+/* Center the commands help section */
+.commands-help {
+    max-width: 1000px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.commands-help ul {
+    justify-content: center !important;
+}
+
+/* Center the quick actions */
+.quick-actions {
+    justify-content: center !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 30px !important;
+}
+
+/* Improve button spacing */
+.quick-btn {
+    min-width: 120px !important;
+    margin: 0 10px !important;
+}
+
+/* Center the product grid */
+.products-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px !important;
+}
+
+.product-card {
+    width: 280px !important;
+    margin-bottom: 20px !important;
+}
+
+/* Add hover animations to interactive elements */
+.voice-button,
+.submit-btn,
+.quick-btn,
+.add-to-cart-btn {
+    transition: all 0.3s ease !important;
+}
+
+.voice-button:hover,
+.submit-btn:hover,
+.quick-btn:hover,
+.add-to-cart-btn:hover {
+    transform: translateY(-5px) !important;
+}
+
+/* Center the main content grid */
+.main-content {
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    grid-template-columns: minmax(0, 1fr) 350px !important;
+}
+
+/* Improve text alignment in cards */
+.product-title,
+.product-price,
+.cart-header,
+.section-title {
+    text-align: center !important;
+}
+
+/* Better animation for product cards */
+.product-card {
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.product-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Center the audio tutorial modal */
+.auto-tutorial-modal {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+}
+
+/* Center the audio tutorial controls */
+.auto-tutorial-controls {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px !important;
+}
+
+/* Create space between sections */
+.voice-control,
+.main-content,
+.commands-help {
+    margin-bottom: 50px !important;
+}
+
+/* Enhanced glass effect for cards */
+.voice-control,
+.products-section,
+.cart-panel,
+.commands-help {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Improve container padding and margins */
+.container {
+    padding-top: 40px !important;
+    padding-bottom: 100px !important;
+}
+
+/* Enhanced product cards */
+.product-card {
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 6px 10px rgba(0, 0, 0, 0.05) !important;
+    overflow: hidden !important;
+}
+
+/* Better button styling */
+.voice-button,
+.submit-btn,
+.quick-btn {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Improved command help items */
+.commands-help li {
+    text-align: center !important;
+    border-radius: 10px !important;
+    transition: all 0.3s ease !important;
+    border-left: none !important;
+    border-bottom: 4px solid var(--primary-color) !important;
+}
+
+.commands-help li:hover {
+    transform: translateY(-5px) !important;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%) !important;
+}
+
+/* Better responsive behavior */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .cart-panel {
+        max-width: 800px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .input-methods {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .voice-section, 
+    .text-section {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .or-divider {
+        margin: 20px 0 !important;
+    }
+    
+    .quick-actions {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .quick-btn {
+        flex: 1 1 auto !important;
+        min-width: 120px !important;
+    }
+}

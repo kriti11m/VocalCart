@@ -509,7 +509,7 @@ def get_session_store():
 if __name__ == "__main__":
     # Get server config
     host = config.get("server", {}).get("host", "0.0.0.0")
-    port = config.get("server", {}).get("port", 5002)
+    port = 5002  # Force port to 5002
     reload_enabled = config.get("server", {}).get("reload", True)
     
     logger.info(f"Starting VocalCart API on {host}:{port}")

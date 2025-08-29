@@ -56,6 +56,7 @@ body {
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
     z-index: -1;
+    opacity: 0.95;
 }
 
 @keyframes gradientShift {
@@ -65,11 +66,14 @@ body {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px 20px;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* ----- Typography & Headings ----- */
@@ -119,11 +123,13 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(20px);
     border-radius: var(--radius-large);
     padding: 40px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto;
     box-shadow: var(--card-shadow);
     text-align: center;
     border: 1px solid rgba(255,255,255,0.2);
     animation: fadeInUp 1s ease-out 0.2s both;
+    width: 100%;
+    max-width: 900px;
 }
 
 .products-section {
@@ -133,6 +139,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 30px;
     box-shadow: var(--card-shadow);
     border: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
 }
 
 .product-card {
@@ -144,6 +151,8 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(0,0,0,0.05);
     position: relative;
     overflow: hidden;
+    width: 280px;
+    flex: 0 0 auto;
 }
 
 .product-card:focus-within {
@@ -264,6 +273,7 @@ h1, h2, h3, h4, h5, h6 {
     height: fit-content;
     position: sticky;
     top: 20px;
+    width: 100%;
 }
 
 .cart-header {
@@ -303,10 +313,12 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(20px);
     border-radius: var(--radius-large);
     padding: 30px;
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
     box-shadow: var(--card-shadow);
     border: 1px solid rgba(255,255,255,0.2);
     animation: fadeInUp 1s ease-out 0.6s both;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .commands-help h3 {
@@ -356,10 +368,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 25px;
     margin-top: 20px;
+    justify-content: center;
 }
 
 .main-content {
@@ -367,6 +380,9 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr 350px;
     gap: 30px;
     animation: fadeInUp 1s ease-out 0.4s both;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* ----- Buttons & Inputs ----- */
@@ -509,6 +525,11 @@ h1, h2, h3, h4, h5, h6 {
 .quick-btn.checkout {
     background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
     box-shadow: 0 8px 25px rgba(159, 122, 234, 0.4);
+}
+
+.quick-btn.tutorial {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
 }
 
 .quick-btn:hover {

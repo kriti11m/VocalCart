@@ -31,7 +31,13 @@ VocalCart now features a **modern, voice-accessible frontend** with a **real-tim
 - **🔄 Session Management**: In-memory state tracking
 - **📡 RESTful API**: FastAPI with async scraping
 - **🎭 Multi-store**: Concurrent scraping across platforms
-- **♿ Accessibility**: Screen reader support and keyboard navigation
+- **♿ Enhanced Accessibility**: 
+  - Auto-starting tutorial for blind users
+  - Interactive voice-over guidance
+  - Screen reader optimization
+  - ARIA live regions
+  - Keyboard shortcuts for all actions
+  - Skip links for keyboard navigation
 - **🔍 Product Display**: Real-time image and data visualization
 
 ## 📁 Project Structure
@@ -56,9 +62,14 @@ VocalCart/
 │   └── index.html            # Main web interface
 ├── static/
 │   ├── css/
-│   │   └── styles.css        # Application styles
+│   │   ├── styles.css        # Application styles
+│   │   ├── accessibility.css # Accessibility style enhancements
+│   │   └── fix-frontend.css  # Frontend restoration styles
 │   ├── js/
-│   │   └── app.js            # Frontend JavaScript
+│   │   ├── app.js            # Frontend JavaScript
+│   │   ├── accessibility-tutorial.js # Step-by-step tutorial
+│   │   ├── audio-tutorial.js # Audio guide for blind users
+│   │   └── auto-start-tutorial.js    # Auto-start tutorial logic
 │   └── favicon.ico           # Site favicon
 ├── requirements.txt          # Dependencies
 └── demo_realtime_api.py      # API testing script
@@ -349,6 +360,41 @@ Sessions are stored in-memory with the following structure:
 - **Navigation**: <100ms (in-memory)
 - **Concurrent Stores**: 2-3 stores simultaneously
 - **Session Storage**: RAM only, no persistence
+
+## ♿ Accessibility Features
+
+### Auto-Starting Tutorial for Blind Users
+- Automatically detects screen readers and starts a comprehensive audio tutorial
+- Modal dialog with keyboard focus trap for tutorial content
+- ARIA live regions announce important information
+- Step-by-step guidance on using all application features
+
+### Interactive Voice-Over Tutorial
+- Detailed audio explanations of all UI elements and functions
+- Keyboard shortcut guidance for blind users
+- Voice-driven navigation and product search instructions
+- Cart management and checkout process explanation
+
+### Keyboard Navigation
+- **Ctrl+Space**: Start/stop tutorial
+- **Alt+T**: Toggle tutorial
+- **Spacebar**: Pause/resume tutorial
+- **Escape**: Close tutorial modal
+- **Tab**: Navigate through interactive elements
+- **Enter**: Select current item
+
+### Screen Reader Optimizations
+- ARIA labels and landmarks throughout the application
+- Skip links for bypassing repetitive content
+- Focus management for modal dialogs
+- Semantic HTML structure for better navigation
+- Status announcements for search results and actions
+
+### Accessibility Components
+- `accessibility-tutorial.js`: Step-by-step interactive tutorial
+- `audio-tutorial.js`: Comprehensive audio guide with blind-specific instructions
+- `auto-start-tutorial.js`: Ensures tutorial auto-starts for screen reader users
+- `fix-frontend.css`: Enhanced styling for accessibility
 
 ## 🔮 Future Enhancements
 
